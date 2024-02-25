@@ -99,6 +99,24 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+INSTALLED_APPS = [
+    # ...
+    # 👇 Add here your installed app's
+    'rest_framework',
+    'corsheaders',
+    'myapi',
+]
+
+MIDDLEWARE = [
+    # ...
+    # 👇 Add this line here
+    'corsheaders.middleware.CorsMiddleware',
+    # Add above line just before this line 👇
+    'django.middleware.common.CommonMiddleware',
+]
+
+# 👇 Add this line here
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
