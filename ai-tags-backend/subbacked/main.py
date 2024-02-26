@@ -21,7 +21,7 @@ def main(amount, memo, date, pending, type):
     vespa_remove()
     
     return result
-    
+
     
     
     

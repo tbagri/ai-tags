@@ -1,0 +1,32 @@
+{
+  "1": {
+    "field": "Fiscal Sponsorship"
+  },
+  "2": {
+    "field": "February Expenses"
+  },
+  "3": {
+    "field": "Team Budget"
+  },
+  "4": {
+    "field": "Bank Fees"
+  },
+  "5": {
+    "field": "Miscellaneous Costs"
+  },
+  "6": {
+    "field": "Event Supplies"
+  },
+  "7": {
+    "field": "Travel Expense"
+  },
+  "8": {
+    "field": "Team Food"
+  },
+  "9": {
+    "field": "Mementos"
+  },
+  "10": {
+    "field": "Activity Costs"
+  }
+}

@@ -1,11 +1,11 @@
 from flask import Flask
 from flask_cors import CORS
-from subbacked.main import main
+from main import main
 
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/<int:amount>/<memo>/<date>/<status>', methods=['GET'])
+@app.route('/<amount>/<memo>/<date>/<status>/<type>', methods=['GET'])
 def process_data(amount, memo, date, status, type):
     result = main(amount, memo, date, status, type)
     return result

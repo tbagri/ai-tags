@@ -1,0 +1,6 @@
+{
+  "put": "id:tags:my_content::10",
+  "fields": {
+    "text": "Activity Costs"
+  }
+}

@@ -21,17 +21,35 @@ function Transaction(props) {
         setTags(prevTags => [...prevTags, tag]);
     }
 
+    function replaceSpecialCharacters(inputString) {
+        var regex = /[^\w\d]/g;
+        var resultString = String(inputString).replace(regex, '_');
+    
+        return resultString;
+    }
+
     function addSuggestedTags() {
-        const { amount, memo, date, pending, comments } = props.transaction;
+        let { amount_cents, memo, date, pending, type } = props.transaction;
+
+        amount_cents = replaceSpecialCharacters(amount_cents)
+        memo = replaceSpecialCharacters(memo)
+        date = replaceSpecialCharacters(date)
+        pending = replaceSpecialCharacters(pending)
+        type = replaceSpecialCharacters(type)
+
+        if (amount_cents[0] == '-') {
+            amount_cents = "Outgoing" + amount_cents;
+        } else {
+            amount_cents = "Incoming" + amount_cents;
+        }
 
         const formattedString = `http://127.0.0.1:5000/${amount_cents}/${memo}/${date}/${pending}/${type}`;
 
         fetch(formattedString)
         .then(response => response.json())
         .then(json => (
-            json.all_words.map((word) => 
-                console.log(word)
-                //setTags(prevTags => [...prevTags, word])
+            json.words.map((word) => 
+                setTags(prevTags => [...prevTags, word])
             )
         ))
         .catch(error => console.error(error))
