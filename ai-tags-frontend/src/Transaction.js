@@ -6,7 +6,7 @@ import Popup from './PopUp.js';
 function Transaction(props) {
     const [isPopOpen, setIsPopOpen] = useState(false);
     const [tags, setTags] = useState(props.transaction.tags || []);
-    const [generating, setGenerating] = useState(false);
+    const [tagSuggestions, setTagSuggestions] = useState([]);
 
     function formatType(x) {
         return x.replaceAll('_', ' ').toUpperCase();
@@ -18,9 +18,7 @@ function Transaction(props) {
 
     function onTagSubmit(tag) {
         setIsPopOpen(false);
-        if (!tags.includes(tag)) {
-            setTags(prevTags => [...prevTags, tag]);
-        }
+        setTags(prevTags => [...prevTags, tag]);
     }
 
     function replaceSpecialCharacters(inputString) {
@@ -31,8 +29,6 @@ function Transaction(props) {
     }
 
     function addSuggestedTags() {
-        setGenerating(true);
-
         let { amount_cents, memo, date, pending, type } = props.transaction;
 
         amount_cents = replaceSpecialCharacters(amount_cents)
@@ -53,12 +49,10 @@ function Transaction(props) {
         .then(response => response.json())
         .then(json => (
             json.words.map((word) => 
-                onTagSubmit(word)
+                setTags(prevTags => [...prevTags, word])
             )
         ))
         .catch(error => console.error(error))
-
-        setGenerating(false);
     }
 
     if (props.transaction.tags == null) {
@@ -73,7 +67,7 @@ function Transaction(props) {
                 <p className='date'>Date: {props.transaction.date}</p>
                 <p className='status'>Status: <span className={props.transaction.pending ? 'pending' : 'not-pending'} >{props.transaction.pending ? 'Pending' : 'Not Pending'}</span></p>
                 <TagList tags={tags} memo={props.transaction.memo} onAddClicked={onAddClicked}></TagList>
-                <Popup isOpen={isPopOpen} actionType="Creating" memo={props.transaction.memo} onClose={() => setIsPopOpen(false)} onTagSubmit={onTagSubmit} addSuggestedTags={addSuggestedTags} isGenerating={generating}></Popup>
+                <Popup isOpen={isPopOpen} actionType="Creating" memo="Transfer To State High Hack Club" onClose={() => setIsPopOpen(false)} onTagSubmit={onTagSubmit} addSuggestedTags={addSuggestedTags}></Popup>
             </div>
         </div>
     );
