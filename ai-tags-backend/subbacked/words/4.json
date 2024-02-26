@@ -1,0 +1,6 @@
+{
+  "put": "id:tags:my_content::4",
+  "fields": {
+    "text": "Misc. Expense"
+  }
+}

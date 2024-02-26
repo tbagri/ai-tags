@@ -1,0 +1,32 @@
+{
+  "1": {
+    "field": "Max Expenses"
+  },
+  "2": {
+    "field": "Reimbursement"
+  },
+  "3": {
+    "field": "2022-08-06"
+  },
+  "4": {
+    "field": "Misc. Expense"
+  },
+  "5": {
+    "field": "Team Mementos"
+  },
+  "6": {
+    "field": "Travel Supplies"
+  },
+  "7": {
+    "field": "Workshops Supplies"
+  },
+  "8": {
+    "field": "Logistics Supplies"
+  },
+  "9": {
+    "field": "Catering"
+  },
+  "10": {
+    "field": "Team Food"
+  }
+}
