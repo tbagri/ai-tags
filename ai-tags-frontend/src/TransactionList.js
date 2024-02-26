@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Transaction from './Transaction';
 
-function TransactionList() {
+function TransactionList(props) {
     const [transactionData, setTransactionData] = useState([{}]);
 
     useEffect(() => {

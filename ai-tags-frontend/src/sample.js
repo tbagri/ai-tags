@@ -19,7 +19,7 @@ export default {
       "object": "organization",
       "href": "https://hcb.hackclub.com/api/v3/organizations/org_Yvguja.json"
     },
-    "tags": [],
+    "tags": ['High Hack Club', 'Hackathons', 'High School'],
     "transfer": {
       "id": "xfr_g7Mso7",
       "object": "transfer",

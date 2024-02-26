@@ -3,14 +3,13 @@ import sample from './sample.js';
 import TransactionList from './TransactionList';
 import Transaction from './Transaction.js';
 import React, { useState } from 'react';
+import PopUp from './PopUp.js';
 
 function App() {
-  const [usingDarkMode, setUsingDarkMode] = useState(true);
+  const [usingDarkMode, setUsingDarkMode] = useState(false);
   const sampleTransaction = sample;
-
   return (
     <div className={usingDarkMode ? 'App dark-mode' : 'App light-mode'}>
-      <h1>Hello World</h1>
       <button className='mode-button' onClick={() => setUsingDarkMode(!usingDarkMode)}>
         {
           usingDarkMode ?  
