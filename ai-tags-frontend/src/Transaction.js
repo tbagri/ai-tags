@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TagList from './TagList.js';
 import './App.css';
 import Popup from './PopUp.js';
@@ -6,6 +6,7 @@ import Popup from './PopUp.js';
 function Transaction(props) {
     const [isPopOpen, setIsPopOpen] = useState(false);
     const [tags, setTags] = useState(props.transaction.tags || []);
+    const [tagSuggestions, setTagSuggestions] = useState([]);
 
     function formatType(x) {
         return x.replaceAll('_', ' ').toUpperCase();
@@ -20,6 +21,18 @@ function Transaction(props) {
         setTags(prevTags => [...prevTags, tag]);
     }
 
+    function addSuggestedTags() {
+        fetch('http://127.0.0.1:5000/1/2/3/4')
+        .then(response => response.json())
+        .then(json => (
+            json.all_words.map((word) => 
+                console.log(word)
+                //setTags(prevTags => [...prevTags, word])
+            )
+        ))
+        .catch(error => console.error(error))
+    }
+
     if (props.transaction.tags == null) {
         return <h1>loading</h1>
     }
@@ -32,7 +45,7 @@ function Transaction(props) {
                 <p className='date'>Date: {props.transaction.date}</p>
                 <p className='status'>Status: <span className={props.transaction.pending ? 'pending' : 'not-pending'} >{props.transaction.pending ? 'Pending' : 'Not Pending'}</span></p>
                 <TagList tags={tags} memo={props.transaction.memo} onAddClicked={onAddClicked}></TagList>
-                <Popup isOpen={isPopOpen} actionType="Creating" memo="Transfer To State High Hack Club" onClose={() => setIsPopOpen(false)} onTagSubmit={onTagSubmit}></Popup>
+                <Popup isOpen={isPopOpen} actionType="Creating" memo="Transfer To State High Hack Club" onClose={() => setIsPopOpen(false)} onTagSubmit={onTagSubmit} addSuggestedTags={addSuggestedTags}></Popup>
             </div>
         </div>
     );

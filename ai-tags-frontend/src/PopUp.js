@@ -13,6 +13,10 @@ function Popup(props) {
         setInputValue('');
     }
 
+    function handleGenerationClick() {
+        props.addSuggestedTags();
+    }
+
     if (!props.isOpen) return null;
 
     return (
@@ -23,6 +27,8 @@ function Popup(props) {
                 <h2>{props.memo}</h2>
                 <input type='text' className="tag-input" placeholder="Enter tag" value={inputValue} onChange={handleInputChange}></input>
                 <button className="enter-button" onClick={handleEnterClick}>Enter</button>
+                <h4>or</h4>
+                <button className="enter-button" onClick={handleGenerationClick}>AI Generate Tags</button>
             </div>
         </div>
     );
