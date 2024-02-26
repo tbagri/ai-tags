@@ -22,7 +22,11 @@ function Transaction(props) {
     }
 
     function addSuggestedTags() {
-        fetch('http://127.0.0.1:5000/1/2/3/4')
+        const { amount, memo, date, pending, comments } = props.transaction;
+
+        const formattedString = `http://127.0.0.1:5000/${amount_cents}/${memo}/${date}/${pending}/${type}`;
+
+        fetch(formattedString)
         .then(response => response.json())
         .then(json => (
             json.all_words.map((word) => 

@@ -3,10 +3,10 @@ from jsonconvert import json_convert
 from vespaload import load_documents_to_vespa
 from vespaqueue import send_and_extract_words
 from vespadelete import vespa_remove
-def main(amount, memo, date, pending, comments):
+def main(amount, memo, date, pending, type):
     
     #getting a list of 10 words and saving them in data.json
-    ollma_queue(amount, memo, date, pending, comments)
+    ollma_queue(amount, memo, date, pending, type)
     
     #converting to 10 jason files
     json_convert()
@@ -23,10 +23,6 @@ def main(amount, memo, date, pending, comments):
     return result
     
     
-    
-
-
-print(main(65773, "Reimbursing Expensify Report: Max Expenses to 2022-08-06", "2022-09-21", "false", "0"))
     
     
     
