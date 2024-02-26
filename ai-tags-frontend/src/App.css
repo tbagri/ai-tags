@@ -8,7 +8,7 @@
   color: rgb(247, 248, 250);
 }
 
-.light-mode {
+body {
   background-color: rgb(247, 248, 250);
   color: rgb(23, 23, 29);
 }
@@ -27,8 +27,11 @@
   border: 1px solid #ced4da;
   border-radius: 8px;
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.75rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 40vw;
+  margin-top: 0.75rem;
+  margin-left: 30vw;
 }
 
 .memo {
@@ -46,7 +49,7 @@
 .date,
 .status{
   font-size: 1rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 1rem;
   color: #555;
 }
 
@@ -84,6 +87,7 @@
 
 .tag-add {
   background-color: #76b1dc;
+  margin-bottom: 1rem;
 }
 
 .popup-overlay {

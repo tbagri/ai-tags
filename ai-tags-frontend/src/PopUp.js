@@ -19,6 +19,16 @@ function Popup(props) {
 
     if (!props.isOpen) return null;
 
+    if (props.isGenerating) {
+        return (
+            <div className="popup-overlay">
+            <div className="popup-content">
+                <h1>Generating AI Tags</h1>
+            </div>
+        </div>
+        )
+    }
+
     return (
         <div className="popup-overlay">
             <div className="popup-content">
